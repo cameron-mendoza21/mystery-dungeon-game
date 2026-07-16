@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.import/
+.godot/
+
+# Export/build artifacts
+/build/
+export_presets.cfg
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
