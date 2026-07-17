@@ -9,4 +9,3 @@ The main concept of this game is a 2D Mystery Dungeon game. it features a Base w
 The design philosophy im going to keep it close to how the DS style mystery dungeon games were like. simple in gameplay loop, but complex enough to administer thought when dungeon crawling.
 
 From this Github, i will be releasing just release version (.exe) where you can just run and itll load the game up.
-

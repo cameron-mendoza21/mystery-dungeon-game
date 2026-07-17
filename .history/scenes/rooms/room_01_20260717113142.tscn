@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_o4v3m"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_placeholder.png" id="2_l3m8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(16, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
+size = Vector2(16, 360)
+
+[node name="Room01" type="Node2D"]
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.227451, 0.27451, 0.2, 1)
+polygon = PackedVector2Array(0, 0, 640, 0, 640, 360, 0, 360)
+
+[node name="TopWallVisual" type="Polygon2D" parent="."]
+color = Color(0.360784, 0.290196, 0.243137, 1)
+polygon = PackedVector2Array(0, 0, 640, 0, 640, 16, 0, 16)
+
+[node name="BottomWallVisual" type="Polygon2D" parent="."]
+color = Color(0.360784, 0.290196, 0.243137, 1)
+polygon = PackedVector2Array(0, 344, 640, 344, 640, 360, 0, 360)
+
+[node name="LeftWallVisual" type="Polygon2D" parent="."]
+color = Color(0.360784, 0.290196, 0.243137, 1)
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 360, 0, 360)
+
+[node name="RightWallVisual" type="Polygon2D" parent="."]
+color = Color(0.360784, 0.290196, 0.243137, 1)
+polygon = PackedVector2Array(624, 0, 640, 0, 640, 360, 624, 360)
+
+[node name="TopWallCollider" type="StaticBody2D" parent="."]
+position = Vector2(320, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWallCollider"]
+shape = SubResource("RectangleShape2D_top")
+
+[node name="BottomWallCollider" type="StaticBody2D" parent="."]
+position = Vector2(320, 368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWallCollider"]
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="LeftWallCollider" type="StaticBody2D" parent="."]
+position = Vector2(-8, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWallCollider"]
+shape = SubResource("RectangleShape2D_left")
+
+[node name="RightWallCollider" type="StaticBody2D" parent="."]
+position = Vector2(648, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWallCollider"]
+shape = SubResource("RectangleShape2D_right")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(320, 180)
+script = ExtResource("1_o4v3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_l3m8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = true
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 360
