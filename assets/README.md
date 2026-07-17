@@ -1,0 +1,1 @@
+folder structure that contains assets
